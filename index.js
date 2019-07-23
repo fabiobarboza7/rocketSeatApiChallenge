@@ -22,4 +22,13 @@ server.post("/projects", (req, res) => {
   return res.json(projects);
 });
 
+server.put("/projects/:id", (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+
+  projects[id] = { id: projects[id].id, title };
+
+  return res.json(projects);
+});
+
 server.listen(3000);
